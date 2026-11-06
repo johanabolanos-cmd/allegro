@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Apartamento esquinero de 86,72 m² privados en venta en Allegro Reservado, Santa María del Lago, Bogotá. Tres habitaciones, estudio, balcón y vista abierta.">
+  <meta name="theme-color" content="#242422">
+  <title>Apartamento en Allegro Reservado | Santa María del Lago</title>
+  <style>
+    :root {
+      --ivory:#f6f2ea;
+      --paper:#fffdf9;
+      --sand:#ded4c5;
+      --ink:#242422;
+      --muted:#676761;
+      --olive:#65715b;
+      --olive-dark:#46503f;
+      --gold:#b7894b;
+      --line:rgba(36,36,34,.14);
+      --shadow:0 24px 60px rgba(36,36,34,.12);
+      --radius:22px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--ivory);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6}
+    body.modal-open{overflow:hidden}
+    img{display:block;max-width:100%}
+    a{color:inherit}
+    button,a{-webkit-tap-highlight-color:transparent}
+    .skip{position:absolute;left:-999px;top:0;padding:.7rem 1rem;background:var(--ink);color:white;z-index:999}
+    .skip:focus{left:1rem;top:1rem}
+    .shell{width:min(1180px,calc(100% - 40px));margin-inline:auto}
+    .eyebrow{margin:0 0 .8rem;color:var(--gold);font-size:.74rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+    h1,h2,h3{font-family:Georgia,"Times New Roman",serif;font-weight:500;line-height:1.08;margin:0}
+    h2{font-size:clamp(2.15rem,5vw,4.2rem)}
+    p{margin:0}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:48px;padding:.8rem 1.2rem;border:1px solid transparent;border-radius:999px;text-decoration:none;font-weight:750;transition:.2s ease;cursor:pointer}
+    .btn-primary{background:var(--gold);color:#fff}
+    .btn-primary:hover{background:#9f743d;transform:translateY(-2px)}
+    .btn-ghost{border-color:rgba(255,255,255,.65);color:white;background:rgba(255,255,255,.05);backdrop-filter:blur(10px)}
+    .btn-ghost:hover{background:white;color:var(--ink)}
+    .btn-video{border-color:rgba(255,255,255,.65);color:white;background:rgba(255,255,255,.05);backdrop-filter:blur(10px)}
+    .btn-video:hover{background:white;color:var(--ink);transform:translateY(-2px)}
+
+    header{position:sticky;top:0;z-index:100;background:rgba(246,242,234,.92);border-bottom:1px solid var(--line);backdrop-filter:blur(16px)}
+    .nav{height:74px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .brand{display:flex;align-items:center;gap:.75rem;text-decoration:none;font-weight:800;letter-spacing:.02em}
+    .brand-mark{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--olive);color:white;font-family:Georgia,serif;font-size:1.2rem}
+    nav{display:flex;align-items:center;gap:1.3rem}
+    nav a{text-decoration:none;font-size:.88rem;font-weight:650;color:#45453f}
+    nav a:hover{color:var(--gold)}
+    .nav-cta{padding:.58rem 1rem;border-radius:999px;background:var(--ink);color:white!important}
+
+    .hero{position:relative;min-height:calc(100svh - 74px);display:grid;align-items:end;overflow:hidden;background:var(--ink)}
+    .hero-media{position:absolute;inset:0}
+    .hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 52%}
+    .hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(25,26,22,.85) 0%,rgba(25,26,22,.58) 43%,rgba(25,26,22,.12) 76%),linear-gradient(0deg,rgba(25,26,22,.62),transparent 48%)}
+    .hero-content{position:relative;z-index:2;padding:clamp(4rem,10vh,8rem) 0 4.5rem;color:white}
+    .hero-copy{max-width:790px}
+    .hero h1{font-size:clamp(3.1rem,8.5vw,7.5rem);letter-spacing:-.045em;max-width:920px}
+    .hero-sub{margin-top:1.25rem;max-width:650px;font-size:clamp(1.05rem,2vw,1.35rem);color:rgba(255,255,255,.82)}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+    .hero-badge{position:absolute;right:3vw;bottom:3.2rem;z-index:3;width:172px;height:172px;border-radius:50%;display:grid;place-content:center;text-align:center;background:var(--paper);color:var(--ink);box-shadow:var(--shadow);transform:rotate(4deg)}
+    .hero-badge small{font-size:.67rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+    .hero-badge strong{font-family:Georgia,serif;font-size:1.65rem;font-weight:500}
+
+    .facts{background:var(--paper);border-bottom:1px solid var(--line)}
+    .facts-grid{display:grid;grid-template-columns:repeat(6,1fr)}
+    .fact{padding:1.45rem .8rem;text-align:center;border-right:1px solid var(--line)}
+    .fact:last-child{border-right:0}
+    .fact strong{display:block;font-family:Georgia,serif;font-size:1.5rem;font-weight:500}
+    .fact span{display:block;margin-top:.15rem;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+    section{padding:clamp(4.5rem,9vw,8rem) 0}
+    .intro-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,7vw,7rem);align-items:start}
+    .intro-copy{font-size:clamp(1.1rem,2vw,1.35rem);color:#55554f}
+    .intro-copy p+p{margin-top:1rem}
+    .signature{margin-top:2rem;padding-left:1rem;border-left:3px solid var(--gold);font-family:Georgia,serif;font-size:1.35rem;color:var(--olive-dark)}
+
+    .view-section{padding:0;background:var(--ink);color:white}
+    .view-grid{display:grid;grid-template-columns:1.15fr .85fr;min-height:680px}
+    .view-image{height:100%;min-height:520px;overflow:hidden}
+    .view-image img{width:100%;height:100%;object-fit:cover}
+    .view-copy{padding:clamp(3rem,7vw,7rem);display:flex;flex-direction:column;justify-content:center}
+    .view-copy p{margin-top:1.2rem;color:rgba(255,255,255,.7);font-size:1.08rem}
+    .view-note{margin-top:2.5rem;padding-top:1.3rem;border-top:1px solid rgba(255,255,255,.18);display:flex;gap:2rem}
+    .view-note strong{font-family:Georgia,serif;font-size:1.5rem;font-weight:500}
+    .view-note span{display:block;font-size:.75rem;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.08em}
+
+    .gallery-head{display:flex;justify-content:space-between;gap:2rem;align-items:end;margin-bottom:2rem}
+    .gallery-head p{max-width:420px;color:var(--muted)}
+    .filters{display:flex;gap:.55rem;overflow:auto;padding-bottom:.8rem;scrollbar-width:none;margin-bottom:1rem}
+    .filters::-webkit-scrollbar{display:none}
+    .filter{white-space:nowrap;border:1px solid var(--line);background:transparent;padding:.65rem 1rem;border-radius:999px;font:inherit;font-size:.84rem;font-weight:700;color:#56564f;cursor:pointer}
+    .filter.active{background:var(--olive);border-color:var(--olive);color:white}
+    .gallery-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
+    .photo{grid-column:span 4;position:relative;aspect-ratio:1/1;overflow:hidden;border-radius:16px;border:0;padding:0;background:#ddd;cursor:pointer}
+    .photo:nth-child(1),.photo:nth-child(7){grid-column:span 8;aspect-ratio:2/1}
+    .photo img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
+    .photo:hover img{transform:scale(1.025)}
+    .photo::after{content:attr(data-label);position:absolute;left:0;right:0;bottom:0;padding:2.5rem 1rem .8rem;color:white;text-align:left;font-weight:750;font-size:.88rem;background:linear-gradient(transparent,rgba(0,0,0,.62));opacity:0;transition:.2s}
+    .photo:hover::after,.photo:focus-visible::after{opacity:1}
+
+    .features{background:var(--paper)}
+    .feature-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(2.5rem,7vw,7rem);align-items:start}
+    .feature-list{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+    .feature-item{padding:1.4rem 1rem 1.4rem 0;border-bottom:1px solid var(--line)}
+    .feature-item:nth-child(odd){border-right:1px solid var(--line)}
+    .feature-item:nth-child(even){padding-left:1rem}
+    .feature-item strong{display:block;font-family:Georgia,serif;font-size:1.25rem;font-weight:500}
+    .feature-item span{font-size:.84rem;color:var(--muted)}
+
+    .amenities{background:var(--olive);color:white}
+    .amenities-head{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:end;margin-bottom:3rem}
+    .amenities-head p{color:rgba(255,255,255,.72);max-width:480px}
+    .amenity-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.2);border-left:1px solid rgba(255,255,255,.2)}
+    .amenity{min-height:175px;padding:1.4rem;border-right:1px solid rgba(255,255,255,.2);border-bottom:1px solid rgba(255,255,255,.2);display:flex;flex-direction:column;justify-content:space-between}
+    .amenity b{font-size:1.9rem;font-family:Georgia,serif;font-weight:500;color:#e7c48f}
+    .amenity span{font-weight:700}
+
+    .location-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(2rem,6vw,5rem);align-items:center}
+    .address{margin:1.3rem 0;font-size:1.15rem;font-weight:750;color:var(--olive-dark)}
+    .roads{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
+    .road{padding:.5rem .75rem;border:1px solid var(--line);border-radius:999px;font-size:.78rem;font-weight:700}
+    .map{min-height:490px;border:0;width:100%;border-radius:var(--radius);box-shadow:var(--shadow);filter:saturate(.72) contrast(.95)}
+
+    .cta{padding:0 0 5rem}
+    .cta-box{position:relative;overflow:hidden;border-radius:30px;background:var(--ink);color:white;padding:clamp(3rem,8vw,7rem);text-align:center}
+    .cta-box::before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;border:1px solid rgba(255,255,255,.12);left:-210px;top:-210px}
+    .cta-box::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:rgba(183,137,75,.16);right:-170px;bottom:-200px}
+    .cta-box>*{position:relative;z-index:1}
+    .cta-box p{margin:1rem auto 2rem;max-width:600px;color:rgba(255,255,255,.7)}
+    .cta-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:.8rem}
+
+    footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem}
+    .footer-row{display:flex;justify-content:space-between;gap:1rem;align-items:center}
+    .whatsapp{position:fixed;right:20px;bottom:20px;z-index:120;display:grid;place-items:center;width:58px;height:58px;padding:0;border-radius:50%;background:#25d366;color:#082b14;text-decoration:none;box-shadow:0 14px 35px rgba(0,0,0,.22)}
+    .whatsapp-icon{display:grid;place-items:center;width:28px;height:28px;color:white}
+    .whatsapp-icon svg{display:block;width:100%;height:100%;fill:currentColor}
+
+    .modal{position:fixed;inset:0;z-index:300;background:rgba(16,16,14,.94);display:none;align-items:center;justify-content:center;padding:1rem}
+    .modal.open{display:flex}
+    .modal img{max-width:min(1200px,92vw);max-height:86vh;object-fit:contain;border-radius:12px}
+    .modal-close,.modal-nav{position:absolute;border:0;background:rgba(255,255,255,.12);color:white;display:grid;place-items:center;cursor:pointer;backdrop-filter:blur(8px)}
+    .modal-close{right:20px;top:20px;width:44px;height:44px;border-radius:50%;font-size:1.5rem}
+    .modal-nav{top:50%;transform:translateY(-50%);width:48px;height:64px;border-radius:12px;font-size:2rem}
+    .modal-prev{left:20px}.modal-next{right:20px}
+    .modal-caption{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);color:white;background:rgba(0,0,0,.42);padding:.5rem .85rem;border-radius:999px;font-size:.82rem}
+
+    .video-modal{position:fixed;inset:0;z-index:320;background:rgba(16,16,14,.96);display:none;align-items:center;justify-content:center;padding:1rem}
+    .video-modal.open{display:flex}
+    .video-dialog{position:relative;width:min(540px,65.6vh,90vw)}
+    .video-dialog video{display:block;width:100%;aspect-ratio:4/5;object-fit:contain;background:#000;border-radius:16px;box-shadow:0 28px 80px rgba(0,0,0,.48)}
+    .video-close{position:absolute;right:-16px;top:-16px;width:46px;height:46px;border:0;border-radius:50%;display:grid;place-items:center;background:var(--paper);color:var(--ink);font-size:1.55rem;cursor:pointer;box-shadow:0 12px 30px rgba(0,0,0,.28)}
+
+    @media(max-width:900px){
+      nav a:not(.nav-cta){display:none}
+      .hero{min-height:790px}
+      .hero-media::after{background:linear-gradient(0deg,rgba(25,26,22,.9) 0%,rgba(25,26,22,.42) 70%,rgba(25,26,22,.12))}
+      .hero-badge{width:135px;height:135px;right:1.2rem;top:1.2rem;bottom:auto}
+      .hero-badge strong{font-size:1.25rem}
+      .facts-grid{grid-template-columns:repeat(3,1fr)}
+      .fact:nth-child(3){border-right:0}.fact:nth-child(-n+3){border-bottom:1px solid var(--line)}
+      .intro-grid,.feature-layout,.amenities-head,.location-grid{grid-template-columns:1fr}
+      .view-grid{grid-template-columns:1fr}.view-image{min-height:58vw}.view-copy{padding:3rem 1.5rem 4rem}
+      .photo{grid-column:span 6}.photo:nth-child(1),.photo:nth-child(7){grid-column:span 12}
+      .amenity-grid{grid-template-columns:repeat(2,1fr)}
+      .map{min-height:380px}
+    }
+    @media(max-width:560px){
+      .shell{width:min(100% - 26px,1180px)}
+      .brand span:last-child{font-size:.88rem}
+      .nav-cta{font-size:.8rem;padding:.55rem .78rem}
+      .hero{min-height:720px}
+      .hero-content{padding-bottom:2.2rem}
+      .hero h1{font-size:3.05rem}
+      .hero-badge{display:none}
+      .facts-grid{grid-template-columns:repeat(2,1fr)}
+      .fact{border-bottom:1px solid var(--line)!important}.fact:nth-child(even){border-right:0}.fact:nth-last-child(-n+2){border-bottom:0!important}
+      .gallery-head{display:block}.gallery-head p{margin-top:1rem}
+      .photo,.photo:nth-child(1),.photo:nth-child(7){grid-column:span 12;aspect-ratio:1/1}
+      .feature-list{grid-template-columns:1fr}.feature-item{border-right:0!important;padding-left:0!important}
+      .amenity-grid{grid-template-columns:1fr 1fr}.amenity{min-height:150px}
+      .footer-row{display:block}.footer-row p+p{margin-top:.5rem}
+      .whatsapp{width:52px;height:52px}
+      .whatsapp-icon{width:25px;height:25px}
+      .modal-nav{display:none}
+      .video-dialog{width:min(100%,65.6vh)}
+      .video-close{right:-6px;top:-12px}
+    }
+  </style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Apartment","name":"Apartamento en Allegro Reservado","address":{"@type":"PostalAddress","streetAddress":"Avenida Boyacá No. 72-15","addressLocality":"Bogotá","addressRegion":"Bogotá D.C.","addressCountry":"CO"},"numberOfRooms":3,"floorSize":{"@type":"QuantitativeValue","value":"86.72","unitCode":"MTK"}}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#contenido">Ir al contenido</a>
+  <header>
+    <div class="shell nav">
+      <a class="brand" href="#inicio" aria-label="Inicio Allegro Reservado"><span class="brand-mark">A</span><span>Allegro Reservado</span></a>
+      <nav aria-label="Navegación principal">
+        <a href="#apartamento">Apartamento</a>
+        <a href="#galeria">Galería</a>
+        <a href="#conjunto">Conjunto</a>
+        <a href="#ubicacion">Ubicación</a>
+        <a class="nav-cta" href="https://wa.me/573124066324?text=Hola%2C%20vi%20el%20apartamento%20de%20Allegro%20Reservado%20y%20quiero%20recibir%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener">Agendar visita</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="hero" id="inicio">
+      <div class="hero-media"><img src="images/interior-con-vistas-al-skyline-urbano.webp" alt="Sala amplia con cocina abierta, balcón y vista hacia Bogotá"></div>
+      <div class="shell hero-content">
+        <div class="hero-copy">
+          <p class="eyebrow">Santa María del Lago · Bogotá</p>
+          <h1>Amplitud, luz y una vista que inspira.</h1>
+          <p class="hero-sub">Apartamento esquinero en piso 11, con espacios que se conectan para disfrutar mejor la vida en familia.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/573124066324?text=Hola%2C%20quiero%20agendar%20una%20visita%20al%20apartamento%20de%20Allegro%20Reservado." target="_blank" rel="noopener">Agendar una visita</a>
+            <button class="btn btn-video" id="videoOpen" type="button" aria-haspopup="dialog">▶ Ver recorrido en video</button>
+            <a class="btn btn-ghost" href="#galeria">Ver fotografías</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-badge"><small>Precio de venta</small><strong>$655 millones</strong></div>
+    </section>
+
+    <div class="facts" aria-label="Datos principales">
+      <div class="shell facts-grid">
+        <div class="fact"><strong>86,72 m²</strong><span>Área privada</span></div>
+        <div class="fact"><strong>3</strong><span>Habitaciones</span></div>
+        <div class="fact"><strong>2</strong><span>Baños</span></div>
+        <div class="fact"><strong>1</strong><span>Estudio</span></div>
+        <div class="fact"><strong>Piso 11</strong><span>Vista abierta</span></div>
+        <div class="fact"><strong>1</strong><span>Parqueadero</span></div>
+      </div>
+    </div>
+
+    <section id="apartamento">
+      <div class="shell intro-grid">
+        <div>
+          <p class="eyebrow">Un hogar que se siente amplio</p>
+          <h2>Diseñado para vivir cada espacio.</h2>
+        </div>
+        <div class="intro-copy">
+          <p>La distribución esquinera permite que la luz natural acompañe el apartamento durante el día. La zona social integra sala, comedor y cocina abierta, mientras el balcón enmarca una vista amplia de la ciudad y las montañas.</p>
+          <p>La habitación principal incorpora baño privado y walk-in closet. Dos habitaciones adicionales, estudio y un segundo baño completan una distribución cómoda para la vida familiar y el trabajo desde casa.</p>
+          <div class="signature">Un apartamento para llegar, respirar y sentir que estás en casa.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="galeria">
+      <div class="shell">
+        <div class="gallery-head">
+          <div><p class="eyebrow">Recorre el apartamento</p><h2>Galería</h2></div>
+          <p>Selecciona una categoría y abre cualquier fotografía para verla en detalle.</p>
+        </div>
+        <div class="filters" role="group" aria-label="Filtrar fotografías">
+          <button class="filter active" data-filter="all">Todas</button>
+          <button class="filter" data-filter="social">Zona social</button>
+          <button class="filter" data-filter="balcon">Balcón y vista</button>
+          <button class="filter" data-filter="estudio">Estudio</button>
+          <button class="filter" data-filter="habitaciones">Habitaciones</button>
+          <button class="filter" data-filter="banos">Baños</button>
+          <button class="filter" data-filter="conjunto">Conjunto</button>
+        </div>
+        <div class="gallery-grid" id="galleryGrid"></div>
+      </div>
+    </section>
+
+    <section class="amenities" id="conjunto">
+      <div class="shell">
+        <div class="amenities-head">
+          <div><p class="eyebrow">Allegro Reservado</p><h2>Espacios para compartir.</h2></div>
+          <p>Un conjunto residencial de dos torres en Santa María del Lago, con zonas pensadas para el deporte, el encuentro y la vida en familia.</p>
+        </div>
+        <div class="amenity-grid">
+          <div class="amenity"><b>01</b><span>Gimnasio</span></div>
+          <div class="amenity"><b>02</b><span>Cancha sintética</span></div>
+          <div class="amenity"><b>03</b><span>Terraza BBQ</span></div>
+          <div class="amenity"><b>04</b><span>Parque infantil</span></div>
+          <div class="amenity"><b>05</b><span>Salón infantil</span></div>
+          <div class="amenity"><b>06</b><span>Salón de juegos y billar</span></div>
+          <div class="amenity"><b>07</b><span>Parqueaderos para visitantes</span></div>
+          <div class="amenity"><b>08</b><span>Vigilancia</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ubicacion">
+      <div class="shell location-grid">
+        <div>
+          <p class="eyebrow">Ubicación</p>
+          <h2>Conectado con Bogotá.</h2>
+          <p class="address">Avenida Boyacá No. 72-15<br>Santa María del Lago, Engativá</p>
+          <p>Una ubicación estratégica en el noroccidente de Bogotá, con acceso a comercio, servicios y transporte.</p>
+          <div class="roads"><span class="road">Av. Boyacá</span><span class="road">Calle 72</span><span class="road">Calle 80</span><span class="road">Av. Ciudad de Cali</span></div>
+          <p style="margin-top:1.6rem"><a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=Conjunto+Residencial+Allegro+Reservado+Bogota" target="_blank" rel="noopener">Abrir en Google Maps</a></p>
+        </div>
+        <iframe class="map" title="Mapa de Allegro Reservado" loading="lazy" allowfullscreen src="https://www.google.com/maps?q=Conjunto+Residencial+Allegro+Reservado,+Bogot%C3%A1&output=embed"></iframe>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="shell cta-box">
+        <p class="eyebrow">Conócelo personalmente</p>
+        <h2>¿Te imaginas viviendo aquí?</h2>
+        <p>Agenda una visita y descubre la amplitud, la iluminación y la vista de este apartamento en Allegro Reservado.</p>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="https://wa.me/573124066324?text=Hola%2C%20vi%20la%20p%C3%A1gina%20del%20apartamento%20en%20Allegro%20Reservado%20y%20quiero%20agendar%20una%20visita." target="_blank" rel="noopener">Escribir por WhatsApp</a>
+          <a class="btn btn-ghost" href="tel:+573124066324">Llamar al 312 406 6324</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="shell footer-row"><p>Allegro Reservado · Santa María del Lago</p><p>Información sujeta a verificación · 2026</p></div></footer>
+  <a class="whatsapp" href="https://wa.me/573124066324?text=Hola%2C%20quiero%20informaci%C3%B3n%20del%20apartamento%20en%20Allegro%20Reservado." target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+    <span class="whatsapp-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.917-.273-.05-.471-.074-.67.223-.198.298-.767.917-.94 1.116-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479s1.065 2.875 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.693.625.712.227 1.36.195 1.871.118.57-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884a9.82 9.82 0 0 1 7.021 2.91 9.83 9.83 0 0 1 2.897 7.027c-.003 5.45-4.437 9.884-9.882 9.884m8.413-18.297A11.815 11.815 0 0 0 12.055 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.3-1.654a11.882 11.882 0 0 0 5.698 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></span>
+  </a>
+
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Fotografía ampliada">
+    <button class="modal-close" id="modalClose" aria-label="Cerrar">×</button>
+    <button class="modal-nav modal-prev" id="modalPrev" aria-label="Anterior">‹</button>
+    <img id="modalImage" src="" alt="">
+    <button class="modal-nav modal-next" id="modalNext" aria-label="Siguiente">›</button>
+    <div class="modal-caption" id="modalCaption"></div>
+  </div>
+
+  <div class="video-modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Recorrido en video del apartamento">
+    <div class="video-dialog">
+      <button class="video-close" id="videoClose" type="button" aria-label="Cerrar video">×</button>
+      <video id="propertyVideo" controls playsinline preload="metadata">
+        <source src="media/allegro-recorrido-4x5.mp4" type="video/mp4">
+        Tu navegador no puede reproducir este video.
+      </video>
+    </div>
+  </div>
+
+  <script>
+    const photos = [
+      {src:'images/interior-con-vistas-al-skyline-urbano.webp',label:'Zona social y balcón',cat:'social'},
+      {src:'images/cocina-con-isla-y-dos-lamparas.webp',label:'Cocina abierta',cat:'social'},
+      {src:'images/barra-despejada-nicho-abierto.webp',label:'Cocina y vista',cat:'social'},
+      {src:'images/cocina-calida-y-entrada-despejada.webp',label:'Barra y acceso',cat:'social'},
+      {src:'images/allegro-042-retoque-localizado-revision.webp',label:'Sala, comedor y cocina',cat:'social'},
+      {src:'images/balcon-con-vistas-a-ciudad-y-montanas.webp',label:'Balcón',cat:'balcon'},
+      {src:'images/balcon-acristalado-con-ciudad-y-montanas.webp',label:'Vista panorámica',cat:'balcon'},
+      {src:'images/estancia-luminosa-con-ventana-y-puerta.webp',label:'Estudio independiente',cat:'estudio'},
+      {src:'images/ventana-interior-con-vistas-a-la-montana.webp',label:'Habitación principal',cat:'habitaciones'},
+      {src:'images/puerta-abierta-al-vestidor-con-estantes.webp',label:'Acceso al walk-in closet',cat:'habitaciones'},
+      {src:'images/armario-de-dos-puertas-con-cajonera.webp',label:'Habitación con clóset',cat:'habitaciones'},
+      {src:'images/armario-de-tres-puertas-una-abierta.webp',label:'Habitación auxiliar',cat:'habitaciones'},
+      {src:'images/panel-de-ducha-negro-mate.webp',label:'Baño principal',cat:'banos'},
+      {src:'images/bano-con-ducha-y-espejo.webp',label:'Segundo baño',cat:'banos'},
+      {src:'images/entrada-allegro-con-torres-y-cartel.webp',label:'Allegro Reservado',cat:'conjunto'},
+      {src:'images/cancha-allegro-porteria-y-lineas.webp',label:'Cancha sintética',cat:'conjunto'},
+      {src:'images/toboganes-coloridos-junto-a-fachada-de-ladrillo.webp',label:'Parque infantil',cat:'conjunto'},
+      {src:'images/senal-302-sobre-plaza-amarilla.webp',label:'Parqueadero privado',cat:'conjunto'}
+    ];
+    const grid = document.getElementById('galleryGrid');
+    const modal = document.getElementById('modal');
+    const modalImage = document.getElementById('modalImage');
+    const modalCaption = document.getElementById('modalCaption');
+    const videoModal = document.getElementById('videoModal');
+    const propertyVideo = document.getElementById('propertyVideo');
+    let visible = [...photos];
+    let current = 0;
+
+    function render(filter='all'){
+      visible = filter === 'all' ? [...photos] : photos.filter(p => p.cat === filter);
+      grid.innerHTML = '';
+      visible.forEach((p,i) => {
+        const button = document.createElement('button');
+        button.className = 'photo';
+        button.dataset.label = p.label;
+        button.setAttribute('aria-label','Abrir foto: ' + p.label);
+        button.innerHTML = `<img src="${p.src}" alt="${p.label}" loading="lazy">`;
+        button.addEventListener('click',()=>openModal(i));
+        grid.appendChild(button);
+      });
+    }
+    function openModal(i){current=i;updateModal();modal.classList.add('open');document.body.classList.add('modal-open');document.getElementById('modalClose').focus()}
+    function closeModal(){modal.classList.remove('open');document.body.classList.remove('modal-open')}
+    function updateModal(){const p=visible[current];modalImage.src=p.src;modalImage.alt=p.label;modalCaption.textContent=`${p.label} · ${current+1} de ${visible.length}`}
+    function move(step){current=(current+step+visible.length)%visible.length;updateModal()}
+    document.querySelectorAll('.filter').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));btn.classList.add('active');render(btn.dataset.filter)}));
+    document.getElementById('modalClose').addEventListener('click',closeModal);
+    document.getElementById('modalPrev').addEventListener('click',()=>move(-1));
+    document.getElementById('modalNext').addEventListener('click',()=>move(1));
+    modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});
+    function openVideo(){videoModal.classList.add('open');document.body.classList.add('modal-open');document.getElementById('videoClose').focus()}
+    function closeVideo(){propertyVideo.pause();videoModal.classList.remove('open');document.body.classList.remove('modal-open');document.getElementById('videoOpen').focus()}
+    document.getElementById('videoOpen').addEventListener('click',openVideo);
+    document.getElementById('videoClose').addEventListener('click',closeVideo);
+    videoModal.addEventListener('click',e=>{if(e.target===videoModal)closeVideo()});
+    document.addEventListener('keydown',e=>{
+      if(videoModal.classList.contains('open')){if(e.key==='Escape')closeVideo();return}
+      if(!modal.classList.contains('open'))return;
+      if(e.key==='Escape')closeModal();
+      if(e.key==='ArrowLeft')move(-1);
+      if(e.key==='ArrowRight')move(1)
+    });
+    render();
+  </script>
+</body>
+</html>
